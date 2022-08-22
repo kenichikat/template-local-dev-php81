@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  php-db:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: php-db
+    restart: always
+    volumes:
+      - ${PWD}/php-db/data:/var/lib/mysql
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_DATABASE: sandbox
+      MYSQL_USER: sandbox
+      MYSQL_ROOT_PASSWORD: kattest      
+      MYSQL_PASSWORD: kattest
+
+  php-dev:
+    depends_on:
+      - php-db
+    image: php:7.4-apache
+    platform: linux/amd64
+    container_name: php-dev
+    restart: always
+    volumes:
+      - ${PWD}/php-dev/html:/var/www/html
+    ports:
+      - 8080:80
