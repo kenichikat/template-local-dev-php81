@@ -1,29 +1,35 @@
 version: '3'
 services:
 
-  php-db:
+  mysql-dev:
     image: mysql:5.7
     platform: linux/amd64
-    container_name: php-db
+    container_name: mysql-dev
     restart: always
     volumes:
-      - ${PWD}/php-db/data:/var/lib/mysql
+      - ${PWD}/mysql-dev/root:/home/root
+      - ${PWD}/mysql-dev/conf/mysql/my.cnf:/etc/my.cnf
+      - ${PWD}/mysql-dev/data:/var/lib/mysql
     ports:
       - 13306:3306
     environment:
       MYSQL_DATABASE: sandbox
       MYSQL_USER: sandbox
-      MYSQL_ROOT_PASSWORD: kattest      
-      MYSQL_PASSWORD: kattest
+      MYSQL_ROOT_PASSWORD: sandbox      
+      MYSQL_PASSWORD: sandbox
 
   php-dev:
     depends_on:
-      - php-db
-    image: php:7.4-apache
+      - mysql-dev
+    build: ./php-dev/
     platform: linux/amd64
     container_name: php-dev
     restart: always
     volumes:
-      - ${PWD}/php-dev/html:/var/www/html
+      - ${PWD}/php-dev/root/:/home/root
+      - ${PWD}/php-dev/conf/apache2/:/etc/apache2/
+      - ${PWD}/php-dev/conf/php/:/usr/local/etc/php/
+      - ${PWD}/php-dev/apps/:/var/www/
     ports:
       - 8080:80
+      - 8443:443
