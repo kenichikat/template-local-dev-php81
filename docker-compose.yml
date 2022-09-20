@@ -29,7 +29,7 @@ services:
       - ${PWD}/php-dev/root/:/home/root
       - ${PWD}/php-dev/conf/apache2/:/etc/apache2/
       - ${PWD}/php-dev/conf/php/:/usr/local/etc/php/
-      - ${PWD}/php-dev/apps/:/var/www/
+      - ${PWD}/php-dev/www/:/var/www/
     ports:
       - 8080:80
       - 8443:443
