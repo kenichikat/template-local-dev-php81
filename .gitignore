@@ -1,3 +1,5 @@
 php-dev/root
+php-dev/conf/apache2/certs/*
+php-dev/www/sandbox
 mysql-dev/data
 mysql-dev/root
