@@ -31,5 +31,6 @@ services:
       - ${PWD}/php-dev/conf/php/:/usr/local/etc/php/
       - ${PWD}/php-dev/www/:/var/www/
     ports:
+      - 8000:8000 
       - 8080:80
       - 8443:443
