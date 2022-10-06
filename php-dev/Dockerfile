@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.1-apache-bullseye
 
 RUN apt-get update \
  && apt install -y git vim unzip \
