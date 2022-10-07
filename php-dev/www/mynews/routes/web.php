@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admin'], function(){
+
+    Route::get('news/create', 'Admin\NewsController@add');
+    // php09-4
+    Route::get('profile/create', 'Admin\ProfileController@add');
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
+});
+
+// php09-3
+Route::get('AAA', 'Admin\AAAController@bbb');
+
