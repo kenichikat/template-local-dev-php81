@@ -19,10 +19,12 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function(){
 
-    Route::get('news/create', 'Admin\NewsController@add');
+
+    // NewsController Classがみつからなかったのでテキストの内容でなく、Appから書くように修正
+    Route::get('news/create', 'App\Http\Controllers\Admin\NewsController@add');
     // php09-4
-    Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    Route::get('profile/create', 'App\Http\Controllers\Admin\ProfileController@add');
+    Route::get('profile/edit', 'App\Http\Controllers\Admin\ProfileController@edit');
 });
 
 // php09-3
