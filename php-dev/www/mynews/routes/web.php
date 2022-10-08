@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function(){
 
 
-    // NewsController Classがみつからなかったのでテキストの内容でなく、Appから書くように修正
+    // ver.8 から書き方変わっている https://laravel.com/docs/8.x/routing#the-default-route-files 
     Route::get('news/create', [NewsController::class, 'add']);
     // php09-4
     Route::get('profile/create', [ProfileController::class, 'add']);
