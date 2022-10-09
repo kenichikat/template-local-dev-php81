@@ -24,7 +24,8 @@
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- この章の後半で作成するCSSを読み込みます --}}
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        <!-- <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">  -->
+        @vite(['resources/js/app.js', 'resources/js/admin.js'])
     </head>
     <body>
         <div id="app">
