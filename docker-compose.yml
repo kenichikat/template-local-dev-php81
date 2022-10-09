@@ -13,10 +13,10 @@ services:
     ports:
       - 13306:3306
     environment:
-      MYSQL_DATABASE: sandbox
-      MYSQL_USER: sandbox
-      MYSQL_ROOT_PASSWORD: sandbox      
-      MYSQL_PASSWORD: sandbox
+      MYSQL_DATABASE: mynews
+      MYSQL_USER: mnuser
+      MYSQL_ROOT_PASSWORD: mynews
+      MYSQL_PASSWORD: mynews
 
   php-dev:
     depends_on:
