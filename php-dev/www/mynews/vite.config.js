@@ -5,13 +5,12 @@ import path from 'path'
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/js/app.js', 'resources/js/admin.js'],
+            input: [
+                'resources/js/app.js', 'resources/sass/app.scss',
+                'resources/sass/admin.scss',
+                'resources/sass/profile.scss'
+            ],
             refresh: true,
         }),
-    ],
-    resolve: {
-        alias: {
-            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-        }
-    },
+    ]
 });

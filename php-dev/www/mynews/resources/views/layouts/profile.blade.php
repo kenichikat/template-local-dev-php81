@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
         <!-- Scripts & Styles-->
-        @vite(['resources/js/app.js', 'resources/sass/app.scss', 'resources/sass/admin.scss'])
+        @vite(['resources/js/app.js', 'resources/sass/app.scss', 'resources/sass/profile.scss'])
     </head>
     <body>
         <div id="app">
