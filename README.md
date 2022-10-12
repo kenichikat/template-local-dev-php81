@@ -1,2 +1,3 @@
-# local-dev-php81
- localでphpをいじる環境
+# laravel-study-mynews-infra
+
+Laravel学習環境のインフラ部分
