@@ -1,3 +1,3 @@
-# laravel-study-mynews-infra
+# template-local-dev-php81
 
-Laravel学習環境のインフラ部分
+php81のローカル開発環境

@@ -1,15 +1,14 @@
 version: '3'
 services:
 
-  mysql-dev:
+  db:
     image: mysql:5.7
     platform: linux/amd64
-    container_name: mysql-dev
     restart: always
     volumes:
-      - ${PWD}/mysql-dev/root:/home/root
-      - ${PWD}/mysql-dev/conf/mysql/my.cnf:/etc/my.cnf
-      - ${PWD}/mysql-dev/data:/var/lib/mysql
+      - ${PWD}/db/root:/home/root
+      - ${PWD}/db/conf/mysql/my.cnf:/etc/my.cnf
+      - ${PWD}/db/data:/var/lib/mysql
     ports:
       - 13306:3306
     environment:
@@ -18,18 +17,17 @@ services:
       MYSQL_ROOT_PASSWORD: mynews
       MYSQL_PASSWORD: mynews
 
-  php-dev:
+  web:
     depends_on:
-      - mysql-dev
-    build: ./php-dev/
+      - db
+    build: ./web/
     platform: linux/amd64
-    container_name: php-dev
     restart: always
     volumes:
-      - ${PWD}/php-dev/root/:/home/root
-      - ${PWD}/php-dev/conf/apache2/:/etc/apache2/
-      - ${PWD}/php-dev/conf/php/:/usr/local/etc/php/
-      - ${PWD}/php-dev/www/:/var/www/
+      - ${PWD}/web/root/:/home/root
+      - ${PWD}/web/conf/apache2/:/etc/apache2/
+      - ${PWD}/web/conf/php/:/usr/local/etc/php/
+      - ${PWD}/web/www/:/var/www/
     ports:
       - 8000:8000 
       - 8080:80

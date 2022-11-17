@@ -1,3 +1,0 @@
-[submodule "php-dev/www/mynews"]
-	path = php-dev/www/mynews
-	url = git@github.com:kenichikat/laravel-study-mynews.git
